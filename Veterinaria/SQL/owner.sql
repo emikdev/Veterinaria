@@ -12,8 +12,6 @@ CREATE TABLE owner (
 
 -- Insertar datos de ejemplo en la tabla "owner" sin proporcionar un valor para "id_veterinary"
 
-INSERT INTO owner (name, dni, phone, mail)
+INSERT INTO owner (id_veterinary, name, dni, phone, mail)
 VALUES
-    ('Dueño 1', '123456789', '555-123-4567', 'dueno1@example.com'),
-    ('Dueño 2', '987654321', '555-987-6543', 'dueno2@example.com'),
-    ('Dueño 3', '111222333', '555-111-2223', 'dueno3@example.com');
+    ('1', 'Theo Molina', '45779189', '+54 911 6692-2713', 'TheoMolina12@gmail.com');

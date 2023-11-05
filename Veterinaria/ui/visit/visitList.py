@@ -1,8 +1,25 @@
 import flet as ft
 from flet import *
-from flet_route import Params,Basket
+from config.database import *
+from flet_route import Routing, path, Params, Basket
+from models.models import *
 
 def visitls(page:ft.Page,params:Params,basket:Basket):
+    query = "SELECT visit.id, visit.id_pet, visit.date, visit.reason, visit.description, pet.name FROM visit JOIN pet ON visit.id_pet = pet.id"
+    cursor.execute(query)
+    visits_data = cursor.fetchall()
+    visits = [Visit(id, id_pet, date, reason, description, pet_name) for (id, id_pet, date, reason, description, pet_name) in visits_data]
+
+    rows = []
+    for visit in visits:
+        rows.append(ft.DataRow(cells=[
+            ft.DataCell(ft.Text(str(visit.id))),
+            ft.DataCell(ft.Text(visit.date)),
+            ft.DataCell(ft.Text(visit.reason)),
+            ft.DataCell(ft.Text(visit.description)),
+            ft.DataCell(ft.Text(str(visit.id_pet))),
+            ft.DataCell(ft.Text(visit.pet_name))
+        ]))
 
     return ft.View(
         "/ownerls/petls/visitls",
@@ -12,24 +29,20 @@ def visitls(page:ft.Page,params:Params,basket:Basket):
                 title= Text("Visit List"),
                 automatically_imply_leading=False,
                 actions=[
+                    ft.IconButton(icon=ft.icons.DELETE, on_click=lambda _: page.go("/ownerls/petls/visitls/deleteVisit")),
                     ft.ElevatedButton("Create Visit", on_click=lambda _: page.go("/ownerls/petls/visitls/createVisit")),
                 ]
                 ),
             ft.DataTable(
                 columns=[
-                    ft.DataColumn(ft.Text("ID"), numeric=True),
+                    ft.DataColumn(ft.Text("Visit ID"), numeric=True),
                     ft.DataColumn(ft.Text("Date")),
                     ft.DataColumn(ft.Text("Motive")),
-                    ft.DataColumn(ft.Text("Description"))
+                    ft.DataColumn(ft.Text("Description")),
+                    ft.DataColumn(ft.Text("Pet ID")),
+                    ft.DataColumn(ft.Text("Pet Name"))
                 ],
-                rows=[
-                    ft.DataRow(cells=[ft.DataCell(ft.Text("1")),
-                    ft.DataCell(ft.Text("26-10-2023")),
-                    ft.DataCell(ft.Text("Limpieza Dental")),
-                    ft.DataCell(ft.Text("Sin Complicaciones"))
-                    ]),
-
-                ]
+                rows=rows,
             )
         ]
     )

@@ -7,7 +7,9 @@ from ui.visit.visitList import *
 from ui.owner.createOwner import *
 from ui.pet.createPet import *
 from ui.visit.createVisit import *
-
+from ui.owner.deleteOwner import *
+from ui.pet.deletePet import *
+from ui.visit.deleteVisit import *
 
 def main(page: ft.Page):
 
@@ -19,6 +21,9 @@ def main(page: ft.Page):
         path(url="/ownerls/createOwner", clear=False, view=createOwner),
         path(url="/ownerls/petls/createPet", clear=False, view=createPet),
         path(url="/ownerls/petls/visitls/createVisit", clear=False, view=createVisit),
+        path(url="/ownerls/deleteOwner", clear=False, view=deleteOwner),
+        path(url="/ownerls/petls/deletePet", clear=False, view=deletePet),
+        path(url="/ownerls/petls/visitls/deleteVisit", clear=False, view=deleteVisit),
 
     ]
 

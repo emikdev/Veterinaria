@@ -13,8 +13,6 @@ CREATE TABLE Visit (
 
 -- Insertar datos de ejemplo en la tabla "Visit" haciendo referencia a registros existentes en "veterinary" y "pet"
 
-INSERT INTO Visit (date, reason, description)
+INSERT INTO Visit (id_pet, date, reason, description)
 VALUES
-    ('2023-10-25', 'Control de rutina', 'Sin observaciones.'),
-    ('2023-10-26', 'Vacunación anual', 'Buena salud general.'),
-    ('2023-10-27', 'Tratamiento dental', 'Sin complicaciones.');
+    ('2', '2023-10-25', 'Control de rutina', 'Sin observaciones.');

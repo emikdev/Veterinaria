@@ -38,11 +38,9 @@ def login(page:ft.Page,params:Params,basket:Basket):
 
                 print("Contraseña incorrecta")
 
-
         else: # Si el usuario no se encuentra en la base de datos se muestra el siguinete mensaje
 
             print("Usuario Inexistente")
-
 
     return ft.View(
         "/",

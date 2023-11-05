@@ -1,6 +1,6 @@
 class Pet:
 
-    def __init__(self, id, name, species, race, sex, age):
+    def __init__(self, id, id_owner, name, species, race, sex, age, owner_name):
         # Inicializa una instancia de Mascota con los atributos proporcionados
         self.id = id
         self.name = name
@@ -8,6 +8,8 @@ class Pet:
         self.race = race
         self.sex = sex
         self.age = age
+        self.id_owner = id_owner
+        self.owner_name = owner_name
 
 class Owner:
 
@@ -21,14 +23,16 @@ class Owner:
 
 class Visit:
 
-    def __init__(self, id, date, motive, description):
+    def __init__(self, id, id_pet, date, reason, description, pet_name):
         # Inicializa una instancia de Mascota con los atributos proporcionados
         self.id = id
+        self.id_pet = id_pet
         self.date = date
-        self.motive = motive
+        self.reason = reason
         self.description = description
+        self.pet_name = pet_name
 
-class User:
+class veterinary:
 
     def __init__(self, id, username, password):
         # Inicializa una instancia de Mascota con los atributos proporcionados
