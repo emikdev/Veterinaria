@@ -33,10 +33,11 @@ def createPet(page:ft.Page,params:Params,basket:Basket):
         "/ownerls/petls/createPet",
         controls=[
             ft.AppBar(
-                leading=IconButton(icon=ft.icons.ARROW_BACK, on_click=lambda _: page.go("/ownerls/petls")),
+                leading=IconButton(icon=ft.icons.ARROW_BACK, tooltip='Back to "Pet List"', on_click=lambda _: page.go("/ownerls/petls")),
                 title= Text("Create Pet"),
                 automatically_imply_leading=False,
                 ),
+            ft.Text("Please make sure that the pet owner is already registered on the Owners list before registering a pet", size=10, color='#FFA500'),
             ownerid,
             name,
             species,

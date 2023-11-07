@@ -1,4 +1,5 @@
 import flet as ft
+from flet import *
 from flet_route import Routing,path
 from ua.login import *
 from ui.owner.ownerList import *
@@ -12,6 +13,11 @@ from ui.pet.deletePet import *
 from ui.visit.deleteVisit import *
 
 def main(page: ft.Page):
+
+    page.title ="Veterinary Management"
+    page.theme_mode ="light"
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
 
     app_routes = [
         path(url="/", clear=True, view=login), 
@@ -30,4 +36,5 @@ def main(page: ft.Page):
     Routing(page=page, app_routes=app_routes,)
     page.go(page.route)
     
+
 ft.app(target=main)

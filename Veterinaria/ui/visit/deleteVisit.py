@@ -21,10 +21,11 @@ def deleteVisit(page:ft.Page,params:Params,basket:Basket):
         "/ownerls/petls/deleteVisit/deleteVisit",
         controls=[
             ft.AppBar(
-                leading=IconButton(icon=ft.icons.ARROW_BACK, on_click=lambda _: page.go("/ownerls/petls/visitls")),
+                leading=IconButton(icon=ft.icons.ARROW_BACK, tooltip='Back to "Visit List"', on_click=lambda _: page.go("/ownerls/petls/visitls")),
                 title= Text("Delete Visit"),
                 automatically_imply_leading=False,
                 ),
+            ft.Text("Make sure you enter the correct ID!! THERE'S NO TURNING BACK!!!", size=10, color='#FF0000'),
             visitid,
             ft.ElevatedButton("Delete Visit", on_click=delete)
         ]

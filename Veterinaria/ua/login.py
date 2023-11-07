@@ -3,10 +3,10 @@ from flet import *
 from config.database import *
 from flet_route import Params,Basket
 
-global user, key
+global user, key, veterinaryid
 
-user = ft.TextField(hint_text="Username")
-key = ft.TextField(hint_text="Password")
+user = ft.TextField(hint_text="Username", width=350)
+key = ft.TextField(hint_text="Password", width=350)
 
 def login(page:ft.Page,params:Params,basket:Basket):
 
@@ -32,6 +32,11 @@ def login(page:ft.Page,params:Params,basket:Basket):
             if password == stored_password: # Si la contraseña se encuentra se muestra el siguiente mensaje
 
                 print("Inicio de sesion exitoso!!")
+                query = "SELECT id FROM veterinary WHERE username = %s AND password = %s"
+                cursor.execute(query, (username, password))
+                resultado = cursor.fetchone()
+                veterinaryid = resultado[0]
+                print("Login ID Veterinary",veterinaryid) 
                 page.go("/ownerls")
 
             else: # Si la contraseña no se encuentra se muestra el siguiente mensaje
@@ -45,8 +50,10 @@ def login(page:ft.Page,params:Params,basket:Basket):
     return ft.View(
         "/",
         controls=[
+            ft.Text("Login", size=50),
             user,   
             key,
-            ft.ElevatedButton("Iniciar Sesion", on_click=lambda _: page.go("/ownerls"))
+            ft.Text("Please enter the Username and Password corresponding to your branch", size=10, color='#FFA500'),
+            ft.ElevatedButton("Login", on_click=log)
         ]
     )

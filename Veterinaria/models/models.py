@@ -13,13 +13,15 @@ class Pet:
 
 class Owner:
 
-    def __init__(self, id, name, dni, phone, mail):
+    def __init__(self, id, name, dni, phone, mail, pet_id, pet_name):
         # Inicializa una instancia de Mascota con los atributos proporcionados
         self.id = id
         self.name = name
         self.dni = dni
         self.phone = phone
         self.mail = mail
+        self.pet_id = pet_id
+        self.pet_name = pet_name
 
 class Visit:
 

@@ -29,7 +29,7 @@ def createOwner(page:ft.Page,params:Params,basket:Basket):
         "/ownerls/createOwner",
         controls=[
             ft.AppBar(
-                leading=IconButton(icon=ft.icons.ARROW_BACK, on_click=lambda _: page.go("/ownerls")),
+                leading=IconButton(icon=ft.icons.ARROW_BACK, tooltip='Back to "Owner List"', on_click=lambda _: page.go("/ownerls")),
                 title= Text("Create Owner"),
                 automatically_imply_leading=False,
             ),

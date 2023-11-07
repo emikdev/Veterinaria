@@ -29,10 +29,11 @@ def createVisit(page:ft.Page,params:Params,basket:Basket):
         "/ownerls/petls/visitls/createVisit",
         controls=[
             ft.AppBar(
-                leading=IconButton(icon=ft.icons.ARROW_BACK, on_click=lambda _: page.go("/ownerls/petls/visitls")),
+                leading=IconButton(icon=ft.icons.ARROW_BACK, tooltip='Back to "Visit List"', on_click=lambda _: page.go("/ownerls/petls/visitls")),
                 title= Text("Create Visit"),
                 automatically_imply_leading=False,
                 ),
+            ft.Text("Please make sure that the pet is already registered on the pet list before creating a visit", size=10, color='#FFA500'),
             petid,
             date,
             reason,

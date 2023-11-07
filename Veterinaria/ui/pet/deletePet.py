@@ -21,10 +21,11 @@ def deletePet(page:ft.Page,params:Params,basket:Basket):
         "/ownerls/petls/deletePet",
         controls=[
             ft.AppBar(
-                leading=IconButton(icon=ft.icons.ARROW_BACK, on_click=lambda _: page.go("/ownerls/petls")),
+                leading=IconButton(icon=ft.icons.ARROW_BACK, tooltip='Back to "Pet List"', on_click=lambda _: page.go("/ownerls/petls")),
                 title= Text("Delete Pet"),
                 automatically_imply_leading=False,
                 ),
+            ft.Text("Make sure you enter the correct ID!! THERE'S NO TURNING BACK!!!", size=10, color='#FF0000'),
             petid,
             ft.ElevatedButton("Delete Pet", on_click=delete)
         ]

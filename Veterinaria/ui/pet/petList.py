@@ -27,13 +27,13 @@ def petls(page:ft.Page,params:Params,basket:Basket):
         "/ownerls/petls",
         controls=[
             ft.AppBar(
-                leading=IconButton(icon=ft.icons.ARROW_BACK, on_click=lambda _: page.go("/ownerls")),
+                leading=IconButton(icon=ft.icons.ARROW_BACK, tooltip='Back to "Owner List"', on_click=lambda _: page.go("/ownerls")),
                 title= Text("Pet List"),
                 automatically_imply_leading=False,
                 actions=[
-                    ft.IconButton(icon=ft.icons.DELETE, on_click=lambda _: page.go("/ownerls/petls/deletePet")),
-                    ft.ElevatedButton("Visit List", on_click=lambda _: page.go("/ownerls/petls/visitls")),
-                    ft.ElevatedButton("Create Pet", on_click=lambda _: page.go("/ownerls/petls/createPet"))
+                    ft.IconButton(icon=ft.icons.LIST_ALT, tooltip='Visit List', on_click=lambda _: page.go("/ownerls/petls/visitls")),
+                    ft.IconButton(icon=ft.icons.APP_REGISTRATION, tooltip='Create Pet', on_click=lambda _: page.go("/ownerls/petls/createPet")),
+                    ft.IconButton(icon=ft.icons.DELETE, tooltip='Delete Pet', on_click=lambda _: page.go("/ownerls/petls/deletePet"))
                 ]
                 ),
             ft.DataTable(

@@ -25,12 +25,12 @@ def visitls(page:ft.Page,params:Params,basket:Basket):
         "/ownerls/petls/visitls",
         controls=[
             ft.AppBar(
-                leading=IconButton(icon=ft.icons.ARROW_BACK, on_click=lambda _: page.go("/ownerls/petls")),
+                leading=IconButton(icon=ft.icons.ARROW_BACK, tooltip='Back to "Pet List"', on_click=lambda _: page.go("/ownerls/petls")),
                 title= Text("Visit List"),
                 automatically_imply_leading=False,
                 actions=[
-                    ft.IconButton(icon=ft.icons.DELETE, on_click=lambda _: page.go("/ownerls/petls/visitls/deleteVisit")),
-                    ft.ElevatedButton("Create Visit", on_click=lambda _: page.go("/ownerls/petls/visitls/createVisit")),
+                    ft.IconButton(icon=ft.icons.APP_REGISTRATION, tooltip='Create Visit', on_click=lambda _: page.go("/ownerls/petls/visitls/createVisit")),
+                    ft.IconButton(icon=ft.icons.DELETE, tooltip='Delete Visit', on_click=lambda _: page.go("/ownerls/petls/visitls/deleteVisit"))
                 ]
                 ),
             ft.DataTable(
