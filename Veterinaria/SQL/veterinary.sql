@@ -10,4 +10,4 @@ CREATE TABLE veterinary (
 
 INSERT INTO veterinary (username, password)
 VALUES
-    ('admin', 'admin');
+    ('demic799', '1323');

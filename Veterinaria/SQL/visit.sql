@@ -16,3 +16,4 @@ CREATE TABLE Visit (
 INSERT INTO Visit (id_pet, date, reason, description)
 VALUES
     ('2', '2023-10-25', 'Control de rutina', 'Sin observaciones.');
+

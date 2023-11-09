@@ -1,5 +1,7 @@
+# Se define la clase Pet
 class Pet:
 
+    # Se definen los atributos de la clase
     def __init__(self, id, id_owner, name, species, race, sex, age, owner_name):
         # Inicializa una instancia de Mascota con los atributos proporcionados
         self.id = id
@@ -11,20 +13,22 @@ class Pet:
         self.id_owner = id_owner
         self.owner_name = owner_name
 
+# Se define la clase Owner
 class Owner:
 
-    def __init__(self, id, name, dni, phone, mail, pet_id, pet_name):
+    # Se definen los atributos de la clase
+    def __init__(self, id, name, dni, phone, mail):
         # Inicializa una instancia de Mascota con los atributos proporcionados
         self.id = id
         self.name = name
         self.dni = dni
         self.phone = phone
         self.mail = mail
-        self.pet_id = pet_id
-        self.pet_name = pet_name
 
+# Se define la clase Visit
 class Visit:
 
+    # Se definen los atributos de la clase
     def __init__(self, id, id_pet, date, reason, description, pet_name):
         # Inicializa una instancia de Mascota con los atributos proporcionados
         self.id = id
@@ -34,8 +38,10 @@ class Visit:
         self.description = description
         self.pet_name = pet_name
 
+# Se define la clase Veterinary
 class veterinary:
 
+    # Se definen los atributos de la clase
     def __init__(self, id, username, password):
         # Inicializa una instancia de Mascota con los atributos proporcionados
         self.id = id

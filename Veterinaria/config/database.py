@@ -6,4 +6,5 @@ conn = mysql.connector.connect(
     host="localhost", user="root", password="root", database="veterinary"
 )
 
+# Se define una variable que contiene la coneccion a la base de datos para emplearla al realizar consultas
 cursor = conn.cursor()
