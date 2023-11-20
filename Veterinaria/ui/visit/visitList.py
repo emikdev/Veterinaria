@@ -27,7 +27,9 @@ def visitls(page:ft.Page,params:Params,basket:Basket):
             ft.DataCell(ft.Text(visit.reason)),
             ft.DataCell(ft.Text(visit.description)),
             ft.DataCell(ft.Text(str(visit.id_pet))),
-            ft.DataCell(ft.Text(visit.pet_name))
+            ft.DataCell(ft.Text(visit.pet_name)),
+            ft.DataCell(ft.IconButton(icon=ft.icons.EDIT, tooltip='Edit')),
+            ft.DataCell(ft.IconButton(icon=ft.icons.DELETE, tooltip='Delete'))
         ]))
 
     # Se retorna el contenido de la View
@@ -40,6 +42,7 @@ def visitls(page:ft.Page,params:Params,basket:Basket):
                 title= Text("Visit List"),
                 automatically_imply_leading=False,
                 actions=[
+                    ft.IconButton(icon=icons.CONTENT_PASTE_SEARCH, tooltip="Search Visit"),
                     ft.IconButton(icon=ft.icons.APP_REGISTRATION, tooltip='Create Visit', on_click=lambda _: page.go("/ownerls/petls/visitls/createVisit")),
                     ft.IconButton(icon=ft.icons.DELETE, tooltip='Delete Visit', on_click=lambda _: page.go("/ownerls/petls/visitls/deleteVisit"))
                 ]
@@ -53,10 +56,14 @@ def visitls(page:ft.Page,params:Params,basket:Basket):
                     ft.DataColumn(ft.Text("Motive")),
                     ft.DataColumn(ft.Text("Description")),
                     ft.DataColumn(ft.Text("Pet ID")),
-                    ft.DataColumn(ft.Text("Pet Name"))
+                    ft.DataColumn(ft.Text("Pet Name")),
+                    ft.DataColumn(ft.Text("Edit Info")),
+                    ft.DataColumn(ft.Text("Delete"))
                 ],
                 # Se cargan las filas que fueron creadas con anterioridad
                 rows=rows,
-            )
-        ]
+            ),
+            # ft.IconButton(icon=ft.icons.INFO_OUTLINED, tooltip="View Info")
+        ],
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER
     )

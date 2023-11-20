@@ -64,5 +64,7 @@ def login(page:ft.Page,params:Params,basket:Basket):
             key,
             ft.Text("Please enter the Username and Password corresponding to your branch", size=10, color='#FFA500'),
             ft.ElevatedButton("Login", on_click=log)
-        ]
+        ],
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        vertical_alignment=ft.MainAxisAlignment.CENTER
     )

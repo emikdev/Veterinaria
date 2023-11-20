@@ -13,10 +13,10 @@ def createOwner(page:ft.Page,params:Params,basket:Basket):
 
     # Se definen las variables globales y los inputs que se emplearan en la View y el Query
     global vetid_value
-    name = ft.TextField(hint_text="Name")
-    dni = ft.TextField(hint_text="DNI")
-    phone = ft.TextField(hint_text="Phone")
-    mail = ft.TextField(hint_text="Email")
+    name = ft.TextField(hint_text="Name", width=350)
+    dni = ft.TextField(hint_text="DNI", width=350)
+    phone = ft.TextField(hint_text="Phone", width=350)
+    mail = ft.TextField(hint_text="Email", width=350)
 
     # Se define la funcion encargada de enviar los datos ingresados a la BD
     def create_owner(e):
@@ -51,5 +51,7 @@ def createOwner(page:ft.Page,params:Params,basket:Basket):
             phone,
             mail,
             ft.ElevatedButton("Create Owner", on_click=create_owner)
-        ]
+        ],
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        vertical_alignment=ft.MainAxisAlignment.CENTER
     )

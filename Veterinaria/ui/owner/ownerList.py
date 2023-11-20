@@ -27,8 +27,11 @@ def ownerls(page:ft.Page,params:Params,basket:Basket):
             ft.DataCell(ft.Text(owner.name)),
             ft.DataCell(ft.Text(str(owner.dni))),
             ft.DataCell(ft.Text(str(owner.phone))),
-            ft.DataCell(ft.Text(owner.mail))
-        ]))
+            ft.DataCell(ft.Text(owner.mail)),
+            ft.DataCell(ft.IconButton(icon=ft.icons.PETS, tooltip='View Pets', on_click=lambda _: page.go("/ownerls/petls"))),
+            ft.DataCell(ft.IconButton(icon=ft.icons.EDIT, tooltip='Edit')),
+            ft.DataCell(ft.IconButton(icon=ft.icons.DELETE, tooltip='Delete Owner'))
+        ])),
 
     # Se retorna el contenido de la view
     return ft.View(
@@ -39,7 +42,7 @@ def ownerls(page:ft.Page,params:Params,basket:Basket):
                 leading=IconButton(icon=ft.icons.LOGOUT, tooltip='Logout', on_click=lambda _: page.go("/")),
                 title= ft.Text("Owner List"),
                 actions=[
-                    ft.IconButton(icon=ft.icons.PETS, tooltip='Pet List', on_click=lambda _: page.go("/ownerls/petls")),
+                    ft.IconButton(icon=ft.icons.PERSON_SEARCH_SHARP, tooltip="Search Owner"),
                     ft.IconButton(icon=ft.icons.APP_REGISTRATION, tooltip='Create Owner', on_click=lambda _: page.go("/ownerls/createOwner")),
                     ft.IconButton(icon=ft.icons.DELETE, tooltip='Delete Owner', on_click=lambda _: page.go("/ownerls/deleteOwner"))
                 ]
@@ -52,10 +55,16 @@ def ownerls(page:ft.Page,params:Params,basket:Basket):
                     ft.DataColumn(ft.Text("Full Name")),
                     ft.DataColumn(ft.Text("DNI"), numeric=True),
                     ft.DataColumn(ft.Text("Phone"), numeric=True),
-                    ft.DataColumn(ft.Text("Email"))
+                    ft.DataColumn(ft.Text("Email")),
+                    ft.DataColumn(ft.Text("View Pets")),
+                    ft.DataColumn(ft.Text("Edit Info")),
+                    ft.DataColumn(ft.Text("Delete"))
                 ],
+
                 # Se cargan las filas que fueron creadas con anterioridad
                 rows=rows,
             ),
+            # ft.IconButton(icon=ft.icons.INFO_OUTLINED, tooltip="View Info")
         ],
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER
     )

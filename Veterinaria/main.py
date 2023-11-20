@@ -45,3 +45,5 @@ def main(page: ft.Page):
     
 # Se carga la funcion main lanzando la app
 ft.app(target=main)
+
+ # view=ft.AppView.WEB_BROWSER
